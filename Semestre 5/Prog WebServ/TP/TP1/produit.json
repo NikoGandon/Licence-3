@@ -1,0 +1,20 @@
+{
+    "produit" : [
+        {
+            "nom" : "Ordinateur",
+            "prix" : 1000
+        },
+        {
+            "nom" : "Clavier",
+            "prix" : 70
+        },
+        {
+            "nom" : "Souris",
+            "prix" : 40
+        },
+        {
+            "nom" : "Ecran",
+            "prix" : 150
+        }
+    ]
+}
