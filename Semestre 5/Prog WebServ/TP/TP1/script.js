@@ -22,11 +22,43 @@ function creerTableauProduit(prod)
 {
     if (prod == null)
         throw "Produit null";
-    //Recupere le tableau créé dans le html
-    let tableau = document.getElementById("produit").getElementsByTagName("tbody")[0];
-    allProducts.produit.forEach(element => {
-        const a = document.createElement("tr");
-        a.innerHTML += "<td>" + element.nom + "</td><td>" + element.prix + "</td><td><button onclick='ajoutPrix()'>Augmenter</button></td><td><button>Diminuer</button></td>";
-        tableau.appendChild(a);
+
+    const table = document.getElementById("produit");
+    const tbody = table.querySelector("tbody");
+
+    prod.produit.forEach((product) => {
+        const row = document.createElement("tr");
+        const nameCell = document.createElement("td");
+        const priceCell = document.createElement("td");
+        const increaseButtonCell = document.createElement("td");
+        const decreaseButtonCell = document.createElement("td");
+
+        nameCell.textContent = product.nom;
+        priceCell.textContent = product.prix;
+
+        const increaseButton = document.createElement("button");
+        increaseButton.textContent = "Augmenter";
+        increaseButton.addEventListener("click", () => {
+            /*product.prix += 1;*/
+            ajoutPrix();
+            priceCell.textContent = product.prix;
+        });
+
+        const decreaseButton = document.createElement("button");
+        decreaseButton.textContent = "Réduire";
+        decreaseButton.addEventListener("click", () => {
+            product.prix -= 1;
+            priceCell.textContent = product.prix;        
+        });
+
+        increaseButtonCell.appendChild(increaseButton);
+        decreaseButtonCell.appendChild(decreaseButton);
+
+        row.appendChild(nameCell);
+        row.appendChild(priceCell);
+        row.appendChild(increaseButtonCell);
+        row.appendChild(decreaseButtonCell);
+
+        tbody.appendChild(row);
     });
 }
