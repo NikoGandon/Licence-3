@@ -4,8 +4,12 @@ function changerCouleurBackground() {
     console.log(couleurRandom);
 }
 
-function ajoutPrix(){
+function ajoutPrix(product){
     //Ajout 1.3x au prix venant d'un bouton
+    console.log("Ajout 1.3x au prix venant d'un bouton");
+    product.prix += 1;
+    console.log(product.prix);
+
 }
 
 let allProducts;
