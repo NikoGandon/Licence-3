@@ -12,6 +12,19 @@ function ajoutPrix(product){
 
 }
 
+function hideTableau(){
+    //Cache le tableau
+    const bouton = document.getElementById("boutonDisplay");
+    if (document.getElementById("produit").style.display == "none"){
+        document.getElementById("produit").style.display = "block";
+        bouton.textContent = "Cacher le tableau";
+    }
+    else{
+        document.getElementById("produit").style.display = "none";
+        bouton.textContent = "Afficher le tableau";
+    }
+}
+
 let allProducts;
 
 function getProduit(){
@@ -43,8 +56,7 @@ function creerTableauProduit(prod)
         const increaseButton = document.createElement("button");
         increaseButton.textContent = "Augmenter";
         increaseButton.addEventListener("click", () => {
-            /*product.prix += 1;*/
-            ajoutPrix();
+            product.prix += 1;
             priceCell.textContent = product.prix;
         });
 
