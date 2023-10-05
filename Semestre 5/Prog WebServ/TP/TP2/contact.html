@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <div class="menu">
+            <ul>
+                <li><a href="index.html">Index</a></li>
+                <li>
+                    product
+                    <ul>
+                        <li><a href="price.html">Price</a></li>
+                        <li><a href="description.html">Description</a></li>
+                    </ul>
+                </li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </div>
+    </header>
+    <main>
+        <div class="content">
+            <form action="contact.php" method="post">
+                <label for="nom">Nom :</label>
+                <input type="text" name="nom" id="nom" required>
+                <label for="prenom">Prénom :</label>
+                <input type="text" name="prenom" id="prenom" required>
+                <label for="email">Email :</label>
+                <input type="email" name="email" id="email" required>
+                <input type="textfield" name="message" id="message" placeholder="Message" required>
+                <input type="submit" value="Envoyer">
+            </form>
+        </div>
+    </main>
+</body>
+</html>
