@@ -30,8 +30,7 @@ app.post('/login', (req, res) => {
 		  return res.status(401).json({ message: 'Authentification échouée' });
 		}
 
-		const token = jwt.sign({ username: user.username }, null, { expiresIn: '1h' });
-		console.log(token);
+		const token = jwt.sign({ username: user.username }, secretKey, { expiresIn: '1h' });
 	
 		return res.json({ token });
 	  })(req, res);
