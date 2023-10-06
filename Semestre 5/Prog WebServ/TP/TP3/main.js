@@ -6,11 +6,9 @@ const multer = require('multer');
 
 const storage = multer.diskStorage({
 	destination: (req, file, callback) => {
-	  // Spécifiez le dossier de destination où les fichiers seront stockés
 	  callback(null, 'uploads/');
 	},
 	filename: (req, file, callback) => {
-	  // Spécifiez le nom du fichier une fois qu'il est téléchargé
 	  callback(null, Date.now() + '-' + file.originalname);
 	},
   });
