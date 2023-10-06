@@ -3,29 +3,58 @@ const app = express()
 const port = 3000
 const bodyParse = require('body-parser')
 const multer = require('multer');
+const passport = require('passport');
+const LocalStrategy = require('passport-local').Strategy;
+const jwt = require('jsonwebtoken');
+
+const secretKey = null;
+
+app.use(bodyParse.json())
+app.use(passport.initialize());
+
+passport.use(new LocalStrategy((username, password, done) => {
+	if (username === "admin" && password === "admin") {
+		return done(null, {username});
+	} else {
+		return done(null, false, {message: 'Incorrect username or password.'});
+	}
+}));
+
+app.post('/login', (req, res) => {
+	passport.authenticate('local', { session: false }, (err, user) => {
+		if (err) {
+		  return res.status(500).json({ message: "Erreur d'authentification : " + err });
+		}
+	
+		if (!user) {
+		  return res.status(401).json({ message: 'Authentification échouée' });
+		}
+
+		const token = jwt.sign({ username: user.username }, null, { expiresIn: '1h' });
+		console.log(token);
+	
+		return res.json({ token });
+	  })(req, res);
+	})
+  
 
 const storage = multer.diskStorage({
-	destination: (req, file, callback) => {
-	  callback(null, './uploads');
-	},
-	filename: (req, file, callback) => {
-	  const filename = Date.now() + '-' + file.originalname;
-	  callback(null, filename);
-	},
-  });
-  
+    destination: (req, file, callback) => {
+      callback(null, './uploads');
+    },
+    filename: (req, file, callback) => {
+      const filename = Date.now() + '-' + file.originalname;
+      callback(null, filename);
+    },
+});
+
 const upload = multer({ storage: storage });
 
 
-app.use(bodyParse.json())
 
 app.get('/', (req, res) => {res.send("HW")})
 app.listen(port, () => {
 	console.log("server listening @ port")
-})
-
-app.get('/Login/:usrname/:pwd', (req, res) => {
-	res.send("Login")
 })
 
 app.get('/Register/:email/:pwd', (req, res) => {
