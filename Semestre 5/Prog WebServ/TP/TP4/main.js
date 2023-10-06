@@ -8,6 +8,8 @@ const passport = require('passport');
 const LocalStrategy = require('passport-local').Strategy;
 const jwt = require('jsonwebtoken');
 const crypto = require('crypto');
+const mysql = require('mysql2');
+const bcrypt = require('bcrypt');
 
 const secretKey = process.env.ACCESS_TOKEN;
 
