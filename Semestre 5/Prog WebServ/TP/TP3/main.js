@@ -6,14 +6,16 @@ const multer = require('multer');
 
 const storage = multer.diskStorage({
 	destination: (req, file, callback) => {
-	  callback(null, 'uploads/');
+	  callback(null, './uploads');
 	},
 	filename: (req, file, callback) => {
-	  callback(null, Date.now() + '-' + file.originalname);
+	  const filename = Date.now() + '-' + file.originalname;
+	  callback(null, filename);
 	},
   });
+  
+const upload = multer({ storage: storage });
 
-const upload = multer(storage);
 
 app.use(bodyParse.json())
 
