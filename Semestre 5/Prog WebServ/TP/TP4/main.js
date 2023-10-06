@@ -23,6 +23,15 @@ app.get('/', (req, res) => {res.send("HW")})
 app.listen(port, () => {
 	console.log("server listening @ port")
 })
+
+app.get('/Login/:usrname/:pwd', (req, res) => {
+	res.send("Login")
+})
+
+app.get('/Register/:email/:pwd', (req, res) => {
+	res.send("Register")
+})
+
 app.get('/Hey', (req, res) => {res.send("Hey")})
 app.get('/Calcul/:num1/:num2/:operateur', (req, res) => {
 	
