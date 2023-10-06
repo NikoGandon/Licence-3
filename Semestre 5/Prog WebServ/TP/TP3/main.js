@@ -81,5 +81,7 @@ app.post('/profil', (req, res) => {
 });
 
 app.post('/upload', upload.single('file'), (req, res) => {
-		res.send('Fichier téléchargé avec succès !');
+    console.log('Fichier téléchargé :', req.file);	
+	console.log('chemin :', req.file.path);
+    res.send('Fichier téléchargé avec succès !');
 });
