@@ -1,13 +1,15 @@
+require('dotenv').config();
 const express = require('express')
 const app = express()
-const port = 3000
+const port = process.env.PORT
 const bodyParse = require('body-parser')
 const multer = require('multer');
 const passport = require('passport');
 const LocalStrategy = require('passport-local').Strategy;
 const jwt = require('jsonwebtoken');
+const crypto = require('crypto');
 
-const secretKey = null;
+const secretKey = process.env.ACCESS_TOKEN;
 
 app.use(bodyParse.json())
 app.use(passport.initialize());
@@ -62,9 +64,6 @@ app.listen(port, () => {
 	console.log("server listening @ port")
 })
 
-app.get('/Register/:email/:pwd', (req, res) => {
-	res.send("Register")
-})
 
 app.get('/Hey', (req, res) => {res.send("Hey")})
 app.get('/Calcul/:num1/:num2/:operateur', (req, res) => {
