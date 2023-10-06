@@ -39,13 +39,11 @@ app.get('/Calcul/:num1/:num2/:operateur', (req, res) => {
 		result = num1 * num2;
 	} else if (operateur === "/") {
 		if (num2 === 0) {
-			// Gérer la division par zéro ici si nécessaire
 			res.status(400).send("Division par zéro impossible");
 			return;
 		}
 		result = num1 / num2;
 	} else {
-		// Gérer un opérateur non pris en charge ici si nécessaire
 		res.status(400).send("Opérateur non pris en charge");
 		return;
 	}
@@ -67,9 +65,6 @@ app.post('/constante', (req, res) => {
 });
 
 app.post('/profil', (req, res) => {
-		//Créer une variable ayant pour valeur test  Prend en paramètres une chaine de caractères qu’il faudra concatèner à
-		//la variable créée précédemment. Renvoie le résultat
-
 		let maVar = "test";
 		function concatener(parametre) {
 			maVar = maVar + parametre;
