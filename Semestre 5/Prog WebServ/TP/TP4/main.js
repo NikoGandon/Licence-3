@@ -35,7 +35,13 @@ app.post('/login', (req, res) => {
 	
 		return res.json({ token });
 	  })(req, res);
-	})
+})
+
+
+app.post('/signin', (req, res) => {
+	const {username, password} = req.body;
+	if ()
+})
   
 
 const storage = multer.diskStorage({
