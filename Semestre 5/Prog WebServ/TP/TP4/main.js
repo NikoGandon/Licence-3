@@ -119,8 +119,8 @@ app.post('/profil', (req, res) => {
 		
 });
 
-app.post('/upload', upload.single('file'), (req, res) => {
-    console.log('Fichier téléchargé :', req.file);	
-	console.log('chemin :', req.file.path);
-    res.send('Fichier téléchargé avec succès !');
-});
+app.post('/login', loginRouter);
+app.post('/signup', signupRouter);
+
+app.post('/upload', storageRouter);
+
