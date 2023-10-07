@@ -1,8 +1,6 @@
 const express = require("express");
 const app = express();
 const jwt = require("jsonwebtoken");
-const passportRoute = require("./passportRoute");
-const bcrypt = require("bcrypt");
 const db = require("../config");
 const { hashPassword } = require("./AuthHelper");
 
