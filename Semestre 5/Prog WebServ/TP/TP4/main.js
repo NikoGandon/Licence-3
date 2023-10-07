@@ -1,64 +1,16 @@
 require('dotenv').config();
 const express = require('express')
+const bodyParser = require('body-parser')
 const app = express()
 const port = process.env.PORT
-const bodyParse = require('body-parser')
-const multer = require('multer');
-const passport = require('passport');
-const LocalStrategy = require('passport-local').Strategy;
-const jwt = require('jsonwebtoken');
-const crypto = require('crypto');
-const mysql = require('mysql2');
-const bcrypt = require('bcrypt');
-
-const secretKey = process.env.ACCESS_TOKEN;
-
-app.use(bodyParse.json())
-app.use(passport.initialize());
-
-passport.use(new LocalStrategy((username, password, done) => {
-	if (username === "admin" && password === "admin") {
-		return done(null, {username});
-	} else {
-		return done(null, false, {message: 'Incorrect username or password.'});
-	}
-}));
-
-app.post('/login', (req, res) => {
-	passport.authenticate('local', { session: false }, (err, user) => {
-		if (err) {
-		  return res.status(500).json({ message: "Erreur d'authentification : " + err });
-		}
-	
-		if (!user) {
-		  return res.status(401).json({ message: 'Authentification échouée' });
-		}
-
-		const token = jwt.sign({ username: user.username }, secretKey, { expiresIn: '1h' });
-	
-		return res.json({ token });
-	  })(req, res);
-})
 
 
-app.post('/signin', (req, res) => {
-	const {username, password} = req.body;
-	if ()
-})
-  
+const storageRouter = require('./routes/storage');
+const signupRouter = require('./routes/Users/signup');
+const loginRouter = require('./routes/Users/login');
 
-const storage = multer.diskStorage({
-    destination: (req, file, callback) => {
-      callback(null, './uploads');
-    },
-    filename: (req, file, callback) => {
-      const filename = Date.now() + '-' + file.originalname;
-      callback(null, filename);
-    },
-});
-
-const upload = multer({ storage: storage });
-
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
 
 
 app.get('/', (req, res) => {res.send("HW")})
