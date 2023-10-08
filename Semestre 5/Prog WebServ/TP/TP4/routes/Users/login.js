@@ -10,7 +10,9 @@ const secretKey = process.env.ACCESS_TOKEN;
 function createToken(user){
 	return jwt.sign({ 
 		id : user.id,
-		username: user.username }, secretKey, { expiresIn: '1h' });
+		username: user.username,
+		admin: user.isAdmin ? true : false
+	}, secretKey, { expiresIn: '1h' });
 }
 
 app.post('/login', passport.authenticate('local', {session : false}) ,(req, res, next) => {

@@ -15,11 +15,24 @@ passport.use(new LocalStrategy((username, password, done) => {
 
         const user = result[0];
        
-        if (comparePassword(password, user.password)) {
-            return done(null, user);
+        if (!comparePassword(password, user.password)) {
+            return done(null, false, { message: 'Mot de passe incorrect' });
         }
         
-        return done(null, false, { message: 'Mot de passe incorrect' });
+        db.query("SELECT * FROM admin WHERE id = ?", [user.id], (adminErr, result) => {
+            
+            if(adminErr){
+                return done(adminErr);
+            }
+            if (result.length > 0) {
+                user.isAdmin = true;
+            }
+            else {
+                user.isAdmin = false;
+            }
+            return done(null, user);
+        });
+
         
     })
 }

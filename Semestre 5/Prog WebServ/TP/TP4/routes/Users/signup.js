@@ -11,6 +11,7 @@ function createToken(user) {
     {
       id: user.id,
       username: user.username,
+      admin: user.isAdmin ? true : false
     },
     secretKey,
     { expiresIn: "1h" }
