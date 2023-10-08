@@ -9,6 +9,8 @@ const storageRouter = require('./routes/storage');
 const signupRouter = require('./routes/Users/signup');
 const loginRouter = require('./routes/Users/login');
 
+const checkToken = require('./middleware/AuthToken');
+
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
@@ -60,7 +62,8 @@ app.post('/constante', (req, res) => {
 	}
 });
 
-app.post('/profil', (req, res) => {
+app.post('/profil', checkToken.verifyToken,(req, res) => {
+
 		let maVar = "test";
 		function concatener(parametre) {
 			maVar = maVar + parametre;
@@ -73,6 +76,5 @@ app.post('/profil', (req, res) => {
 
 app.post('/login', loginRouter);
 app.post('/signup', signupRouter);
-
-app.post('/upload', storageRouter);
+app.post('/upload', checkToken.verifyAdminToken, storageRouter);
 
