@@ -1,93 +1,25 @@
 const express = require("express");
 const app = express();
-const port = 3000;
-const bodyParse = require("body-parser");
-const multer = require("multer");
+const port = 3001;
+//const bodyParse = require("body-parser");
 
-const storage = multer.diskStorage({
-  destination: (req, file, callback) => {
-    callback(null, "./uploads");
-  },
-  filename: (req, file, callback) => {
-    const filename = Date.now() + "-" + file.originalname;
-    callback(null, filename);
-  },
-});
+const Hey = require("./routes/Hey");
+const Profil = require("./routes/Profil");
+const File = require("./routes/File");
+const Calcul = require("./routes/Calcul");
+const Constante = require("./routes/Constante");
+const Delete = require("./routes/Delete");
 
-const upload = multer({ storage: storage });
 
-app.use(bodyParse.json());
+//app.use(bodyParse.json());
 
-app.get("/", (req, res) => {
-  res.send("HW");
-});
 app.listen(port, () => {
-  console.log("server listening @ port");
-});
-app.get("/Hey", (req, res) => {
-  res.send("Hey");
-});
-app.get("/Calcul/:num1/:num2/:operateur", (req, res) => {
-  const num1 = parseInt(req.params.num1);
-  const num2 = parseInt(req.params.num2);
-  const operateur = req.params.operateur;
-  let result = 0;
-
-  if (operateur === "+") {
-    result = num1 + num2;
-  } else if (operateur === "-") {
-    result = num1 - num2;
-  } else if (operateur === "*") {
-    result = num1 * num2;
-  } else if (operateur === "d") {
-    if (num2 === 0) {
-      res.status(400).send("Division par zéro impossible");
-      return;
-    }
-    result = num1 / num2;
-  } else {
-    res.status(400).send("Opérateur non pris en charge");
-    return;
-  }
-
-  res.send("Résultat = " + result);
+  console.log("server listening @ port " + port);
 });
 
-const constante = {};
-app.post("/constante", (req, res) => {
-  const { name, value } = req.body;
-
-  if (constante[name]) {
-    res.status(400).send("La constante existe déjà");
-  } else {
-    constante[name] = value;
-    res
-      .status(200)
-      .send(
-        "La constante " +
-          name +
-          " a bien été ajoutée avec la valeur " +
-          constante[name]
-      );
-  }
-});
-
-app.post("/profil", (req, res) => {
-  let maVar = "test";
-  function concatener(parametre) {
-    maVar = maVar + parametre;
-    return maVar;
-  }
-  const resultat = concatener(req.params.profil);
-  res.send(resultat);
-});
-
-app.post("/file", upload.single("file"), (req, res) => {
-  console.log("Fichier téléchargé :", req.file);
-  console.log("chemin :", req.file.path);
-  res.send("Fichier téléchargé avec succès !");
-});
-
-//app.delete("/delete", (req, res) => {
-  //Supprime une variable ayant pour valeur test et renvoie le résultat
-//});
+app.get("/Hey", Hey);
+app.get("/Calcul/:num1/:num2/:operateur", Calcul);
+app.post("/constante", Constante);
+app.post("/file", File);
+app.get("/profil", Profil);
+app.delete("/delete", Delete);
