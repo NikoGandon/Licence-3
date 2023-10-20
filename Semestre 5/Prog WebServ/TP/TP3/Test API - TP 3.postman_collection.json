@@ -62,18 +62,8 @@
 			"request": {
 				"method": "DELETE",
 				"header": [],
-				"body": {
-					"mode": "formdata",
-					"formdata": [
-						{
-							"key": "file",
-							"value": "",
-							"type": "file"
-						}
-					]
-				},
 				"url": {
-					"raw": "127.0.0.1:3000/file",
+					"raw": "127.0.0.1:3000/delete",
 					"host": [
 						"127",
 						"0",
@@ -82,7 +72,7 @@
 					],
 					"port": "3000",
 					"path": [
-						"file"
+						"delete"
 					]
 				}
 			},
@@ -122,8 +112,17 @@
 		{
 			"name": "profil",
 			"request": {
-				"method": "GET",
+				"method": "POST",
 				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"profil\": \"hbfvds\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
 				"url": {
 					"raw": "127.0.0.1:3000/profil",
 					"host": [
@@ -135,6 +134,13 @@
 					"port": "3000",
 					"path": [
 						"profil"
+					],
+					"query": [
+						{
+							"key": "",
+							"value": "",
+							"disabled": true
+						}
 					]
 				}
 			},
