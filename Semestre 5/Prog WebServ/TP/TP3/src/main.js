@@ -11,8 +11,6 @@ const Constante = require("./routes/Constante");
 const Delete = require("./routes/Delete");
 
 
-//app.use(bodyParse.json());
-
 app.listen(port, () => {
   console.log("server listening @ port " + port);
 });
