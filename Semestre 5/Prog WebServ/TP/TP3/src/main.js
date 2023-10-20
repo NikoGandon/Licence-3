@@ -17,5 +17,5 @@ app.get("/Hey", Hey);
 app.get("/Calcul/:num1/:num2/:operateur", Calcul);
 app.post("/constante", Constante);
 app.post("/file", File);
-app.get("/profil", Profil);
+app.post("/profil", Profil);
 app.delete("/delete", Delete);
