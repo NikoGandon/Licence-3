@@ -14,7 +14,7 @@ function verifyToken(req, res, next) {
     req.user = decoded;
     next();
   } catch (err) {
-    return res.status(401).json({ message: "Token invalide" });
+    return res.status(401).json({ message: "Token invalide : " + err });
   }
 }
 
@@ -29,11 +29,11 @@ function verifyAdminToken(req, res, next) {
     const decoded = jwt.verify(token, secretKey);
     req.user = decoded;
     if (!req.user.admin) {
-      return res.status(401).json({ message: "Token invalide" });
+      return res.status(401).json({ message: "Accès non autorisé" });
     }
     next();
   } catch (err) {
-    return res.status(401).json({ message: "Token invalide" });
+    return res.status(401).json({ message: "Token invalide : + " + err });
   }
 }
 

@@ -5,8 +5,9 @@ const app = express();
 const port = process.env.PORT;
 
 const storageRouter = require("./routes/storage");
-const signupRouter = require("./routes/Users/signup");
+const registerRouter = require("./routes/Users/register");
 const loginRouter = require("./routes/Users/login");
+const deleteRouter = require("./routes/delete");
 
 const checkToken = require("./middleware/AuthToken");
 
@@ -23,7 +24,8 @@ app.listen(port, () => {
 app.get("/Hey", (req, res) => {
   res.send("Hey");
 });
-app.get("/Calcul/:num1/:num2/:operateur", (req, res) => {
+
+app.get("/Calcul/:num1/:num2/:operateur", checkToken.verifyToken ,(req, res) => {
   const num1 = parseInt(req.params.num1);
   const num2 = parseInt(req.params.num2);
   const operateur = req.params.operateur;
@@ -49,7 +51,7 @@ app.get("/Calcul/:num1/:num2/:operateur", (req, res) => {
   res.send("Résultat = " + result);
 });
 
-app.post("/constante", (req, res) => {
+app.post("/constante", checkToken.verifyToken, (req, res) => {
   const { name, value } = req.body;
 
   const constante = {};
@@ -72,5 +74,6 @@ app.post("/profil", checkToken.verifyToken, (req, res) => {
 });
 
 app.post("/login", loginRouter);
-app.post("/signup", signupRouter);
+app.post("/register", registerRouter);
 app.post("/upload", checkToken.verifyAdminToken, storageRouter);
+app.delete("/delete", checkToken.verifyAdminToken, deleteRouter);

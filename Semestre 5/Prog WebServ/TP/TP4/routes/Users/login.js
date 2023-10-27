@@ -14,7 +14,7 @@ function createToken(user) {
       admin: user.isAdmin ? true : false,
     },
     secretKey,
-    { expiresIn: process.env.DURATION_TOKEN }
+    { expiresIn: process.env.DURATION_TOKEN}
   );
 }
 

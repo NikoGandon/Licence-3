@@ -18,7 +18,7 @@ function createToken(user) {
   );
 }
 
-app.post("/signup", (req, res, next) => {
+app.post("/register", (req, res, next) => {
   const { username, password } = req.body;
   db.query(
     "SELECT * FROM utilisateurs WHERE username = ?",
