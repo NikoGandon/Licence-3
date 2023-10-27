@@ -7,7 +7,7 @@ const { comparePassword } = require("./AuthHelper");
 passport.use(
   new LocalStrategy((username, password, done) => {
     db.query(
-      "SELECT * FROM utilisateur WHERE username = ?",
+      "SELECT * FROM utilisateurs WHERE username = ?",
       [username],
       (err, result) => {
         if (err) {
@@ -48,7 +48,7 @@ passport.serializeUser((user, done) => {
 });
 
 passport.deserializeUser((id, done) => {
-  db.query("SELECT * FROM utilisateur WHERE id = ?", [id], (err, result) => {
+  db.query("SELECT * FROM utilisateurs WHERE id = ?", [id], (err, result) => {
     if (err) {
       return done(err);
     }

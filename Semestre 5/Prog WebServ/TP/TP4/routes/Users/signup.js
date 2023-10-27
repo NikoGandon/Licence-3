@@ -21,7 +21,7 @@ function createToken(user) {
 app.post("/signup", (req, res, next) => {
   const { username, password } = req.body;
   db.query(
-    "SELECT * FROM utilisateur WHERE username = ?",
+    "SELECT * FROM utilisateurs WHERE username = ?",
     [username],
     (err, result) => {
       if (err) {
@@ -35,7 +35,7 @@ app.post("/signup", (req, res, next) => {
       const hash = hashPassword(password);
 
       db.query(
-        "INSERT INTO utilisateur (username, password) VALUES (?, ?)",
+        "INSERT INTO utilisateurs (username, password) VALUES (?, ?)",
         [username, hash],
         (err, result) => {
           if (err) {
