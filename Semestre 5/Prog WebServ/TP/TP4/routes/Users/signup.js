@@ -11,7 +11,7 @@ function createToken(user) {
     {
       id: user.id,
       username: user.username,
-      admin: user.isAdmin ? true : false
+      admin: user.isAdmin ? true : false,
     },
     secretKey,
     { expiresIn: "1h" }
@@ -20,7 +20,10 @@ function createToken(user) {
 
 app.post("/signup", (req, res, next) => {
   const { username, password } = req.body;
-  db.query("SELECT * FROM utilisateur WHERE username = ?", [username], (err, result) => {
+  db.query(
+    "SELECT * FROM utilisateur WHERE username = ?",
+    [username],
+    (err, result) => {
       if (err) {
         return next(err);
       }
@@ -31,7 +34,10 @@ app.post("/signup", (req, res, next) => {
 
       const hash = hashPassword(password);
 
-      db.query("INSERT INTO utilisateur (username, password) VALUES (?, ?)", [username, hash], (err, result) => {
+      db.query(
+        "INSERT INTO utilisateur (username, password) VALUES (?, ?)",
+        [username, hash],
+        (err, result) => {
           if (err) {
             return next(err);
           }
