@@ -33,7 +33,7 @@ app.post("/register", (req, res, next) => {
       }
     );
   } catch (err) {
-    res.status(500).json({ message: "Signup failed" });
+    res.status(500).json({ message: "L'enregistrement de votre compte n'a pas su s'aboutir. Veuillez réessayer ultérieurement." });
   }
 });
 

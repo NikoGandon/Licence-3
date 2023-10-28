@@ -17,39 +17,44 @@ app.use(bodyParser.json());
 app.get("/", (req, res) => {
   res.send("HW");
 });
+
 app.listen(port, () => {
-  console.log("server listening @ port");
+  console.log("server listening @ port", port);
 });
 
 app.get("/Hey", (req, res) => {
   res.send("Hey");
 });
 
-app.get("/Calcul/:num1/:num2/:operateur", checkToken.verifyToken ,(req, res) => {
-  const num1 = parseInt(req.params.num1);
-  const num2 = parseInt(req.params.num2);
-  const operateur = req.params.operateur;
-  let result = 0;
+app.get(
+  "/Calcul/:num1/:num2/:operateur",
+  checkToken.verifyToken,
+  (req, res) => {
+    const num1 = parseInt(req.params.num1);
+    const num2 = parseInt(req.params.num2);
+    const operateur = req.params.operateur;
+    let result = 0;
 
-  if (operateur === "+") {
-    result = num1 + num2;
-  } else if (operateur === "-") {
-    result = num1 - num2;
-  } else if (operateur === "*") {
-    result = num1 * num2;
-  } else if (operateur === "/") {
-    if (num2 === 0) {
-      res.status(400).send("Division par zéro impossible");
+    if (operateur === "+") {
+      result = num1 + num2;
+    } else if (operateur === "-") {
+      result = num1 - num2;
+    } else if (operateur === "*") {
+      result = num1 * num2;
+    } else if (operateur === "/") {
+      if (num2 === 0) {
+        res.status(400).send("Division par zéro impossible");
+        return;
+      }
+      result = num1 / num2;
+    } else {
+      res.status(400).send("Opérateur non pris en charge");
       return;
     }
-    result = num1 / num2;
-  } else {
-    res.status(400).send("Opérateur non pris en charge");
-    return;
-  }
 
-  res.send("Résultat = " + result);
-});
+    res.send("Résultat = " + result);
+  }
+);
 
 app.post("/constante", checkToken.verifyToken, (req, res) => {
   const { name, value } = req.body;
