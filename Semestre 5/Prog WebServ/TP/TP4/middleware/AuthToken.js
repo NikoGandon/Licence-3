@@ -60,7 +60,7 @@ function verifyAdminToken(req, res, next) {
   } catch (err) {
     return res
       .status(401)
-      .json({ message: "Accès non autorisé : identification impossible." });
+      .json({ message: "Accès non autorisé : identification impossible : " + err });
   }
 }
 
