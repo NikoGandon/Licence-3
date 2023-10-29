@@ -1,13 +1,12 @@
 const express = require("express");
 const app = express();
 
-
-var variable = 10;
-
 app.delete("/delete", (req, res) => {
-    //res.write("Valeur de la variable avant : " + variable);
-    variable = undefined;
-    res.send("Valeur de la variable après : " + variable);
+  var variable = 10;
+  const avant = "valeur de la variable avant : " + variable;
+  variable = undefined;
+  const apres = "valeur de la variable après : " + variable;
+  res.send(avant + "\n" + apres);
 });
 
 module.exports = app;
