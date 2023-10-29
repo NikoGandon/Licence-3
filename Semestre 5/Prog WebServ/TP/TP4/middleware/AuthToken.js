@@ -1,6 +1,19 @@
 require("dotenv").config();
 const jwt = require("jsonwebtoken");
+
 const secretKey = process.env.ACCESS_TOKEN;
+
+function createToken(user) {
+  return jwt.sign(
+    {
+      id: user.id,
+      username: user.username,
+      admin: user.isAdmin ? true : false,
+    },
+    secretKey,
+    { expiresIn: process.env.DURATION_TOKEN}
+  );
+}
 
 function verifyToken(req, res, next) {
   const token = req.headers.authorization.split(" ")[1];
@@ -51,4 +64,4 @@ function verifyAdminToken(req, res, next) {
   }
 }
 
-module.exports = { verifyToken, verifyAdminToken };
+module.exports = { createToken, verifyToken, verifyAdminToken };
