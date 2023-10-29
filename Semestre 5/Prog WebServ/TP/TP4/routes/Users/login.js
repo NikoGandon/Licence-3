@@ -1,7 +1,6 @@
 require("dotenv").config();
 const express = require("express");
 const app = express();
-const jwt = require("jsonwebtoken");
 const passport = require("./passportRoute");
 const { createToken } = require("../../middleware/AuthToken");
 

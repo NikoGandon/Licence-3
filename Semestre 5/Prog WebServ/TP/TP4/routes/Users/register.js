@@ -23,7 +23,7 @@ app.post("/register", (req, res, next) => {
         db.query(
           "INSERT INTO utilisateurs (username, password) VALUES (?, ?)",
           [username, hash],
-          (err, result) => {
+          (err) => {
             if (err) {
               return next(err);
             }
