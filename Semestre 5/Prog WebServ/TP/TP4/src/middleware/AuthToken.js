@@ -11,7 +11,7 @@ function createToken(user) {
       admin: user.isAdmin ? true : false,
     },
     secretKey,
-    { expiresIn: process.env.DURATION_TOKEN}
+    { expiresIn: process.env.DURATION_TOKEN }
   );
 }
 
@@ -51,18 +51,18 @@ function verifyAdminToken(req, res, next) {
     const decoded = jwt.verify(token, secretKey);
     req.user = decoded;
     if (!req.user.admin) {
-      return res
-        .status(401)
-        .json({
-          message:
-            "Accès non autorisé. Vous ne possédez pas les droits pour accéder à ce service",
-        });
+      return res.status(401).json({
+        message:
+          "Accès non autorisé. Vous ne possédez pas les droits pour accéder à ce service",
+      });
     }
     next();
   } catch (err) {
     return res
       .status(401)
-      .json({ message: "Accès non autorisé : identification impossible : " + err });
+      .json({
+        message: "Accès non autorisé : identification impossible : " + err,
+      });
   }
 }
 
