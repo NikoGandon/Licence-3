@@ -6,8 +6,9 @@ const port = process.env.PORT
 
 
 const storageRouter = require('./routes/storage');
-const signupRouter = require('./routes/Users/signup');
+const registerRouter = require('./routes/Users/register');
 const loginRouter = require('./routes/Users/login');
+const deleteRouter = require('./routes/delete');
 
 const checkToken = require('./middleware/AuthToken');
 
@@ -75,6 +76,6 @@ app.post('/profil', checkToken.verifyToken,(req, res) => {
 });
 
 app.post('/login', loginRouter);
-app.post('/signup', signupRouter);
+app.post('/register', registerRouter);
 app.post('/upload', checkToken.verifyAdminToken, storageRouter);
-
+app.delete('/delete', checkToken.verifyAdminToken, deleteRouter);
