@@ -1,10 +1,10 @@
 const passport = require("passport");
 const LocalStrategy = require("passport-local").Strategy;
 
-const db = require("../config");
-const { comparePassword } = require("./AuthHelper");
+const db = require("../routes/config");
+const { comparePassword } = require("../routes/Users/AuthHelper");
 
-passport.use(
+passport.use('localLogin',
   new LocalStrategy((username, password, done) => {
     db.query(
       "SELECT * FROM utilisateurs WHERE username = ?",
