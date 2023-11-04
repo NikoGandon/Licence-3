@@ -1,37 +1,24 @@
 const passport = require("passport");
 const LocalStrategy = require("passport-local").Strategy;
 
-const db = require("../routes/config");
 const { hashPassword } = require("../routes/Users/AuthHelper");
+
+const UserModel = require("../Models/User.model");
 
 passport.use(
   "localRegister",
-  new LocalStrategy((username, password, next) => {
-    db.query(
-      "SELECT * FROM utilisateurs WHERE username = ?",
-      [username],
-      (err, result) => {
-        if (err) {
-          return next(err);
-        }
-        if (result.length > 0) {
-          return next(null, false, { message : "Utilisateur déjà existant" });
-        }
-
-        const hash = hashPassword(password);
-
-        db.query(
-          "INSERT INTO utilisateurs (username, password) VALUES (?, ?)",
-          [username, hash],
-          (err) => {
-            if (err) {
-              return next(err);
-            }
-            return next(null, { username });
-          }
-        );
+  new LocalStrategy(async(username, password, next) => {
+    try {
+      const user = await UserModel.findOne({ where: { username: username } });
+      if (user) {
+        return next(null, false, { message: "Utilisateur déjà existant" });
       }
-    );
+      const hash = hashPassword(password);
+      const newUser = UserModel.create({ username: username, password: hash });
+      return next(null, newUser);
+    } catch (error) {
+      return next(error);
+    }
   })
 );
 
