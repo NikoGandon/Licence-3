@@ -1,24 +1,17 @@
-require('dotenv').config();
-const express = require('express')
-const app = express()
-const jwt = require('jsonwebtoken');
-const passport = require('./passportRoute');
+require("dotenv").config();
+const express = require("express");
+const app = express();
+const passport = require("../../middleware/passportLogin");
+const { createToken } = require("../../middleware/AuthToken");
 
-
-const secretKey = process.env.ACCESS_TOKEN;
-
-function createToken(user){
-	return jwt.sign({ 
-		id : user.id,
-		username: user.username,
-		admin: user.isAdmin ? true : false
-	}, secretKey, { expiresIn: '1h' });
-}
-
-app.post('/login', passport.authenticate('local', {session : false}) ,(req, res, next) => {
-	const user = req.user;
-	const token = createToken(user);
-	res.json({ token });
-})
+app.post(
+  "/login",
+  passport.authenticate("localLogin", { session: false }),
+  (req, res, next) => {
+    const user = req.user;
+    const token = createToken(user);
+    res.json({ token });
+  }
+);
 
 module.exports = app;
