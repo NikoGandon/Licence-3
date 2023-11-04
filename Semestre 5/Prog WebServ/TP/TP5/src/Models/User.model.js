@@ -18,14 +18,6 @@ const User = sequelize.define('utilisateurs', {
     }
 });
 
-const isAdmin = async (id) => {
-    const admin = await sequelize.query('SELECT * FROM admin WHERE id = :id', {
-        replacements: { id: id },
-        type: sequelize.QueryTypes.SELECT
-    });
-    return admin.length > 0;
-}
-
 User.sync();
 
 module.exports = User;
