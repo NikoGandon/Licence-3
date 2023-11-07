@@ -3,6 +3,9 @@ const app = express();
 const passport = require("../../middleware/passportRegister");
 
 app.post("/register", (req, res, next) => {
+  if (!req.body.username || !req.body.password) {
+    return res.status(400).json({ message: "Tous les champs ne sont pas remplis." });
+  }
   try {
     passport.authenticate("localRegister", (err, user, info) => {
       if (err) {
