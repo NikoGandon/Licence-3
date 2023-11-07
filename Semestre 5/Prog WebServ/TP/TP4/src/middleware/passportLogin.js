@@ -4,24 +4,28 @@ const LocalStrategy = require("passport-local").Strategy;
 const db = require("../routes/config");
 const { comparePassword } = require("../routes/Users/AuthHelper");
 
-passport.use('localLogin',
-  new LocalStrategy((username, password, done) => {
-    db.query(
-      "SELECT * FROM utilisateurs WHERE username = ?",
-      [username],
-      (err, result) => {
-        if (err) {
-          return done(err);
-        }
-        if (!result || result.length === 0) {
-          return done(null, false, { message: "Utilisateur inexistant" });
-        }
+passport.use('localLogin', new LocalStrategy((username, password, done) => {
+  if (username == "" || password == "") {
+    return done(null, false, {
+      message: "Tous les champs ne sont pas remplis.",
+    });
+  }
+  db.query(
+    "SELECT * FROM utilisateurs WHERE username = ?",
+    [username],
+    (err, result) => {
+      if (err) {
+        return done(err);
+      }
+      if (!result || result.length === 0) {
+        return done(null, false, { message: "Utilisateur inexistant" });
+      }
 
-        const user = result[0];
+      const user = result[0];
 
-        if (!comparePassword(password, user.password)) {
-          return done(null, false, { message: "Mot de passe incorrect" });
-        }
+      if (!comparePassword(password, user.password)) {
+        return done(null, false, { message: "Mot de passe incorrect" });
+      }
 
         db.query(
           "SELECT * FROM admin WHERE id = ?",
