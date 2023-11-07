@@ -6,7 +6,9 @@ const { createToken } = require("../../middleware/AuthToken");
 
 app.post("/login", (req, res, next) => {
   if (!req.body.username || !req.body.password) {
-    return res.status(400).json({ message: "Tous les champs ne sont pas remplis." });
+    return res
+      .status(400)
+      .json({ message: "Tous les champs ne sont pas remplis." });
   }
   passport.authenticate("localLogin", { session: false }, (err, user, info) => {
     if (err) {

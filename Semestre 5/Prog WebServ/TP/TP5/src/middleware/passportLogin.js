@@ -5,32 +5,35 @@ const db = require("../routes/config");
 const { comparePassword } = require("../routes/Users/AuthHelper");
 const User = require("../Models/User.model");
 
-passport.use('localLogin', new LocalStrategy(async (username, password, done) => {
-  try {
-    const userExisting = await User.findOne({ where: { username: username } });
-    if (!userExisting) {
-      return done(null, false, { message: "Utilisateur inexistant" });
+passport.use(
+  "localLogin",
+  new LocalStrategy(async (username, password, done) => {
+    try {
+      const userExisting = await User.findOne({
+        where: { username: username },
+      });
+      if (!userExisting) {
+        return done(null, false, { message: "Utilisateur inexistant" });
+      }
+      const user = userExisting.dataValues;
+      if (!comparePassword(password, user.password)) {
+        return done(null, false, { message: "Mot de passe incorrect" });
+      }
+      const admin = await db.query("SELECT * FROM admin WHERE id = :id", {
+        replacements: { id: user.id },
+        type: db.QueryTypes.SELECT,
+      });
+      if (admin.length > 0) {
+        user.isAdmin = true;
+      } else {
+        user.isAdmin = false;
+      }
+      return done(null, user);
+    } catch (error) {
+      return done(error);
     }
-    const user = userExisting.dataValues;
-    if (!comparePassword(password, user.password)) {
-      return done(null, false, { message: "Mot de passe incorrect" });
-    }
-    const admin = await db.query('SELECT * FROM admin WHERE id = :id', {
-      replacements: { id: user.id },
-      type: db.QueryTypes.SELECT
-    });
-    if (admin.length > 0) {
-      user.isAdmin = true;
-    } else {
-      user.isAdmin = false;
-    }
-    return done(null, user);
-  } catch (error) {
-    return done(error);
-  }
-
-}));
-
+  })
+);
 
 passport.serializeUser((user, done) => {
   done(null, user.id);

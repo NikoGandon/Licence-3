@@ -7,7 +7,7 @@ const UserModel = require("../Models/User.model");
 
 passport.use(
   "localRegister",
-  new LocalStrategy(async(username, password, next) => {
+  new LocalStrategy(async (username, password, next) => {
     try {
       const user = await UserModel.findOne({ where: { username: username } });
       if (user) {
