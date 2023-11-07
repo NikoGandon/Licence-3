@@ -7,11 +7,6 @@ const { hashPassword } = require("../routes/Users/AuthHelper");
 passport.use(
   "localRegister",
   new LocalStrategy((username, password, next) => {
-    if (!username || !password ) {
-      return next(null, false, {
-        message: "Tous les champs ne sont pas remplis.",
-      });
-    }
     db.query(
       "SELECT * FROM utilisateurs WHERE username = ?",
       [username],

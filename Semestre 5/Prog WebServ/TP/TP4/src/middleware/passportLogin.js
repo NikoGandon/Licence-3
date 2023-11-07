@@ -5,11 +5,6 @@ const db = require("../routes/config");
 const { comparePassword } = require("../routes/Users/AuthHelper");
 
 passport.use('localLogin', new LocalStrategy((username, password, done) => {
-  if (username == "" || password == "") {
-    return done(null, false, {
-      message: "Tous les champs ne sont pas remplis.",
-    });
-  }
   db.query(
     "SELECT * FROM utilisateurs WHERE username = ?",
     [username],
