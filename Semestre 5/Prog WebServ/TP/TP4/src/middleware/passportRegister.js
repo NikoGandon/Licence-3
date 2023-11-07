@@ -7,6 +7,11 @@ const { hashPassword } = require("../routes/Users/AuthHelper");
 passport.use(
   "localRegister",
   new LocalStrategy((username, password, next) => {
+    if (!username || !password ) {
+      return next(null, false, {
+        message: "Tous les champs ne sont pas remplis.",
+      });
+    }
     db.query(
       "SELECT * FROM utilisateurs WHERE username = ?",
       [username],
@@ -15,7 +20,7 @@ passport.use(
           return next(err);
         }
         if (result.length > 0) {
-          return next(null, false, { message : "Utilisateur déjà existant" });
+          return next(null, false, { message: "Utilisateur déjà existant" });
         }
 
         const hash = hashPassword(password);
