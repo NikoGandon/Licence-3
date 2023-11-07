@@ -18,6 +18,10 @@ const storage = multer.diskStorage({
 const upload = multer({ storage: storage });
 
 app.post("/upload", upload.single("file"), (req, res) => {
+  if (!req.file){
+    console.log("Aucun fichier n'a été téléchargé !");
+    return res.send("Aucun fichier n'a été spécifié");
+  }
   console.log("Fichier téléchargé :", req.file);
   console.log("chemin :", req.file.path);
   res.send("Fichier téléchargé avec succès !");
