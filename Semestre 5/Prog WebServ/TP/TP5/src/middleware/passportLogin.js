@@ -23,10 +23,9 @@ passport.use(
         replacements: { id: user.id },
         type: db.QueryTypes.SELECT,
       });
+      user.isAdmin = false;
       if (admin.length > 0) {
         user.isAdmin = true;
-      } else {
-        user.isAdmin = false;
       }
       return done(null, user);
     } catch (error) {
