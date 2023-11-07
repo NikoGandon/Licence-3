@@ -33,7 +33,7 @@ function verifyToken(req, res, next) {
   } catch (err) {
     return res
       .status(401)
-      .json({ message: "Accès non autorisé : identification impossible." });
+      .json({ message: "Identification impossible : " + err });
   }
 }
 
@@ -59,7 +59,7 @@ function verifyAdminToken(req, res, next) {
     next();
   } catch (err) {
     return res.status(401).json({
-      message: "Accès non autorisé : identification impossible : " + err,
+      message: "Identification impossible : " + err,
     });
   }
 }
