@@ -19,7 +19,7 @@ function verifyToken(req, res, next) {
   const token = req.headers.authorization
     ? req.headers.authorization.split(" ")[1]
     : null;
-    
+
   if (!token) {
     return res
       .status(401)
@@ -58,11 +58,9 @@ function verifyAdminToken(req, res, next) {
     }
     next();
   } catch (err) {
-    return res
-      .status(401)
-      .json({
-        message: "Accès non autorisé : identification impossible : " + err,
-      });
+    return res.status(401).json({
+      message: "Accès non autorisé : identification impossible : " + err,
+    });
   }
 }
 

@@ -15,7 +15,7 @@ passport.use(
           return next(err);
         }
         if (result.length > 0) {
-          return next(null, false, { message : "Utilisateur déjà existant" });
+          return next(null, false, { message: "Utilisateur déjà existant" });
         }
 
         const hash = hashPassword(password);
