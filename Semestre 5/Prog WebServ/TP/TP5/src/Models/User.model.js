@@ -1,7 +1,7 @@
 const {DataTypes} = require('sequelize');
 const sequelize = require('../routes/config');
 
-const User = sequelize.define('utilisateurs', {
+const User = sequelize.define('utilisateur', {
     id: {
         type: DataTypes.INTEGER,
         autoIncrement: true,
@@ -16,6 +16,8 @@ const User = sequelize.define('utilisateurs', {
         type: DataTypes.STRING,
         allowNull: false
     }
+}, {
+    tableName: 'utilisateur'
 });
 
 User.sync();
