@@ -18,6 +18,19 @@ const Delete = require("./routes/Delete");
 
 const checkToken = require("./middleware/AuthToken");
 
+app.use((req, res, next) => {
+  res.header('Access-Control-Allow-Origin', '*');
+  res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
+  next();
+});
+
+
+app.use((err, req, res, next) => {
+  console.error(err.stack);
+  res.status(500).send({ error: 'Something went wrong!' });
+});
+
+
 app.listen(port, () => {
   console.log("server listening @ port " + port);
 });
