@@ -10,7 +10,11 @@ import { HttpClient } from '@angular/common/http';
 })
 
 export class LoginComponent implements OnInit{
+onSubmit() {
+throw new Error('Method not implemented.');
+}
   httpClient: HttpClient;
+loginForm: any;
   
   constructor(httpClient: HttpClient) {
     this.httpClient = httpClient;
