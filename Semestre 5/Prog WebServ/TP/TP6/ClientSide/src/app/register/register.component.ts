@@ -1,4 +1,7 @@
 import { Component } from '@angular/core';
+// Formulaire d'inscription
+
+
 
 @Component({
   selector: 'app-register',
