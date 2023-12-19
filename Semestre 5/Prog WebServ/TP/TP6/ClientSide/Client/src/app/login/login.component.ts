@@ -1,36 +1,29 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { FormGroup, FormBuilder, Validators, ReactiveFormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-login',
   standalone: true,
-  imports: [],
+  imports: [ReactiveFormsModule],
   templateUrl: './login.component.html',
-  styleUrl: './login.component.css'
+  styleUrl: './login.component.css',
 })
+export class LoginComponent {
+  loginForm = inject(FormBuilder);
 
-export class LoginComponent implements OnInit{
-onSubmit() {
-throw new Error('Method not implemented.');
-}
-  httpClient: HttpClient;
-loginForm: any;
+  form = this.loginForm.group({
+    username: ['', Validators.required],
+    password: ['', Validators.required],
+  });
+
+  httpClient = inject(HttpClient);
+
+  onSubmit(): void {
+    this.httpClient.post('http://localhost:3000/User/login', {
+      username: this.form.value.username,
+      password: this.form.value.password,
+    });
+  }
   
-  constructor(httpClient: HttpClient) {
-    this.httpClient = httpClient;
-  }
-  ngOnInit(): void {
-    throw new Error('Method not implemented.');
-  }
-
-  login(username: string, password: string): void {
-    this.httpClient.post('http://localhost:3000/User/login', {username: username, password: password}).subscribe(
-      (response) => {
-        console.log(response);
-      },
-      (error) => {
-        console.log(error);
-      }
-    );
-  }
 }
