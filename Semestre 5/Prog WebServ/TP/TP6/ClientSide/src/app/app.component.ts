@@ -2,9 +2,9 @@ import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterOutlet } from '@angular/router';
 
-import { LoginComponent } from './login/login.component';
-import { RegisterComponent } from './register/register.component';
-import { MenuComponent } from './menu/menu.component';
+import { LoginComponent } from './component/login/login.component';
+import { RegisterComponent } from './component/register/register.component';
+import { MenuComponent } from './component/menu/menu.component';
 
 @Component({
     selector: 'app-root',

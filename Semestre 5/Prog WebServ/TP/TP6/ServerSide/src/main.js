@@ -3,9 +3,15 @@ const express = require("express");
 const app = express();
 const port = process.env.PORT;
 const bodyParser = require("body-parser");
+const cors = require("cors");
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
+app.use(cors({
+  origin: "*",
+  methods: ["GET", "POST", "PUT", "DELETE"],
+  allowedHeaders: ["Content-Type", "Authorization"]
+}));
 
 const Hey = require("./routes/Hey");
 const Profil = require("./routes/Profil");
