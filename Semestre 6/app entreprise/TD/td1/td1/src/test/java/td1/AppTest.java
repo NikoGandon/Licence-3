@@ -18,8 +18,6 @@ public class AppTest {
 
     String input = "The economy is about to";
 
-    // Vos autres méthodes de test...
-
     @Test
     public void limiteAtteinte_chaineTronquee() {
         int limit = 11;
@@ -51,7 +49,7 @@ public class AppTest {
     @MethodSource("inputOutputLimitProvider")
     public void invalidLimitInput_isRejected() {
         int limit = -1;
-        assertThrows(IllegalArgumentException.class, () -> {    
+        assertThrows(IllegalArgumentException.class, () -> {
             StringUtilitaire.tronquer(input, limit);
         });
     }
@@ -61,7 +59,6 @@ public class AppTest {
     public void limiteAtteinte_chaineTronquee(String input, int limit) {
         assertTrue(StringUtilitaire.tronquer(input, limit).length() <= limit);
     }
-
 
     @ParameterizedTest
     @MethodSource("inputOutputLimitProvider")
