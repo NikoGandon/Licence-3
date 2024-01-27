@@ -9,6 +9,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.td4.R;
+import com.example.td4.newActivity;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -61,6 +62,11 @@ public class newActivityFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
+        newActivity activity = (newActivity) getActivity();
+        assert activity != null;
+        String countFromActivity = activity.data();
         return inflater.inflate(R.layout.fragment_new_activity, container, false);
     }
+
 }
+
