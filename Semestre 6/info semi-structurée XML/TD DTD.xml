@@ -1,0 +1,61 @@
+<schema xmlns="http://www.w3.org/2001/XMLSchema"
+    xmlns:r="https://univ-tours.fr/systeme_solaire"
+    targetNamespace="https://univ-tours.fr/systeme_solaire"
+    elementFormDefault="qualified">
+
+    <!-- caracteristique -->
+
+    <complexType name="caracteristique">
+        <sequence>
+            <element name="valeur" type="decimal" />
+            <element name="unite" type="string" />
+        </sequence>
+    </complexType>
+
+    <!-- Type -->
+
+    <complexType name="systemeSolaire">
+        <sequence>
+            <element name="etoile" type="r:etoile" />
+            <element name="planete" type="r:planete" minOccurs="0" maxOccurs="unbounded" />
+        </sequence>
+    </complexType>
+
+    <complexType name="etoile">
+        <sequence>
+            <element name="nom" type="string" />
+            <element name="diametre" type="r:caracteristique" />
+            <element name="masse" type="r:caracteristique" />
+            <element name="age" type="r:caracteristique" />
+            <element name="planete" type="r:planete" minOccurs="0" maxOccurs="unbounded" />
+        </sequence>
+    </complexType>
+
+    <complexType name="planete">
+        <sequence>
+            <element name="nom" type="string" />
+            <element name="diametre" type="r:caracteristique" />
+            <element name="masse" type="r:caracteristique" />
+            <element name="distance" type="r:caracteristique" />
+            <element name="age" type="r:caracteristique" />
+            <element name="satellite" type="r:satellite" minOccurs="0" maxOccurs="unbounded" />
+        </sequence>
+    </complexType>
+
+    <complexType name="satellite">
+        <sequence>
+            <element name="nom" type="string" />
+            <element name="diametre" type="r:caracteristique" />
+            <element name="masse" type="r:caracteristique" />
+            <element name="distance" type="r:caracteristique" />
+            <element name="age" type="r:caracteristique" />
+        </sequence>
+    </complexType>
+
+    
+    <simpleType name="anneau">
+        <restriction base="string">
+            <pattern value="oui | non" />
+        </restriction>
+    </simpleType>
+</schema>
