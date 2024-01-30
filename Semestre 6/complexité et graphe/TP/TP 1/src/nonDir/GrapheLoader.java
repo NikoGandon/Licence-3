@@ -1,9 +1,15 @@
 package nonDir;
 
+import java.io.BufferedReader;
+
 public class GrapheLoader<T> {
     public static Graphe<String> chargerChaine(String chemin){
 
-        String fichier = "src/nonDir/ressources/" + chemin;
+        String fichier = "src/nonDir/ressources/" + chemin;  
+        
+        Graphe graphe = new GrapheImpl();
+
+        return graphe;
 
     }
 
