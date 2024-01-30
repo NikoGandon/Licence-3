@@ -16,9 +16,9 @@ public interface Graphe<T> {
     public boolean ajouterArc(Noeud<T> v, Noeud<T> w);
     public boolean supprimerArc(Noeud<T> v, Noeud<T> w);
 
-    public boolean ajouterNoeud(T label);
-    public boolean supprimerNoeud(T label);
-    public boolean ajouterArc(T vLabel, T wLabel);
-    public boolean supprimerArc(T vLabel, T wLabel);
+    // public boolean ajouterNoeud(T label);              Pas demandé
+    // public boolean supprimerNoeud(T label);            Pas demandé
+    // public boolean ajouterArc(T vLabel, T wLabel);     Pas demandé        
+    // public boolean supprimerArc(T vLabel, T wLabel);   Pas demandé        
 
 }

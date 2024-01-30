@@ -2,7 +2,9 @@ package nonDir;
 
 public class GrapheLoader<T> {
     public static Graphe<String> chargerChaine(String chemin){
-        return null; // TODO charger le fichier vers une structure Graphe du bon type
+
+        String fichier = "src/nonDir/ressources/" + chemin;
+
     }
 
     public static Graphe<Integer> chargerEntier(String chemin){
