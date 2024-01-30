@@ -1,25 +1,35 @@
 package com.example.td4;
 
 import android.os.Bundle;
-import android.os.PersistableBundle;
-
-import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.td4.fragments.OnVariableListener;
+import com.example.td4.fragments.newActivityFragment;
+
+import android.content.Intent;
+
 
 public class newActivity extends AppCompatActivity {
-
-    private Bundle extra;
-
     @Override
-    public void onCreate(@Nullable Bundle savedInstanceState, @Nullable PersistableBundle persistentState) {
-        super.onCreate(savedInstanceState, persistentState);
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
         setContentView(R.layout.new_activity);
-    }
 
-    public String data() {
-        return extra.getString("countChangeAct");
-    }
+        if (getIntent().hasExtra("countChangeAct")) {
+            String message = getIntent().getStringExtra("countChangeAct");
 
+            newActivityFragment detailFragment = (newActivityFragment) getSupportFragmentManager().findFragmentById(R.id.newActivityFragment);
+            if (detailFragment != null) {
+                detailFragment.updateTextView(message);
+            }
+        }
+
+        if (getIntent().hasExtra("COUNT_KEY")) {
+            int count = getIntent().getIntExtra("COUNT_KEY", 0);
+
+            newActivityFragment detailFragment = (newActivityFragment) getSupportFragmentManager().findFragmentById(R.id.newActivityFragment);
+            if (detailFragment != null) {
+                detailFragment.updateTextView(String.valueOf(count));
+            }
+        }
+    }
 }
