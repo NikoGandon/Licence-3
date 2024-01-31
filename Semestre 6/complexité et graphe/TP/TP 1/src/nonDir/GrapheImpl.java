@@ -8,7 +8,7 @@ public class GrapheImpl<T> implements Graphe<T> {
 	Set<Noeud<T>> noeuds;
 
 	public GrapheImpl() {
-		noeuds = new HashSet<Noeud<T>>();
+		this.noeuds = new HashSet<Noeud<T>>();
 	}
 
 	public GrapheImpl(Set<Noeud<T>> noeuds) {
@@ -54,10 +54,13 @@ public class GrapheImpl<T> implements Graphe<T> {
 	}
 
 	public int degreMax() {
-		return noeuds.stream().mapToInt(n -> n.degre()).max().orElse(0);
+		return noeuds.isEmpty() ? 0 : noeuds.stream().mapToInt(n -> n.degre()).max().orElse(0);
 	}
 
 	public boolean ajouterArc(Noeud<T> v, Noeud<T> w) {
+		if (v == null || w == null)
+			return false;
+
 		ajouterNoeud(v);
 		ajouterNoeud(w);
 
@@ -71,6 +74,8 @@ public class GrapheImpl<T> implements Graphe<T> {
 	}
 
 	public boolean supprimerArc(Noeud<T> v, Noeud<T> w) {
+		if (v == null || w == null)
+			return false;
 
 		if (v.getVoisins().contains(w)) {
 			v.getVoisins().remove(w);
@@ -83,7 +88,12 @@ public class GrapheImpl<T> implements Graphe<T> {
 
 	@Override
 	public String toString() {
-		return "GrapheImpl [noeuds=" + noeuds + "]";
-	}
+		StringBuilder sb = new StringBuilder("GrapheImpl [\n");
+		for (Noeud<T> noeud : noeuds) {
+			sb.append("\t").append(noeud).append("\n");
+		}
+		sb.append("]");
+		return sb.toString();
+		}
 
 }
