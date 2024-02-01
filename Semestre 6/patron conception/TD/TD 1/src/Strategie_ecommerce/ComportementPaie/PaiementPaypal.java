@@ -1,6 +1,6 @@
 package Strategie_ecommerce.ComportementPaie;
 
-public class PaiementPaypal implements PaiementStrategie{
+public class PaiementPaypal implements PaiementStrategie {
     protected int id;
     protected String mdp;
 

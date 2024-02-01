@@ -23,6 +23,6 @@ public class SimulateurCanard {
         Mandarin mandarin = new Mandarin();
 
         mandarin.afficher();
-        
+
     }
 }

@@ -1,7 +1,7 @@
 package Strategie_ecommerce.ComportementPaie;
 
 public class Article {
-    
+
     private String nom;
     private int prix;
 
@@ -11,9 +11,7 @@ public class Article {
     }
 
     public void payer(PaiementStrategie paiementStrategie) {
-
         paiementStrategie.payer(prix);
-        
     }
 
     public String getNom() {

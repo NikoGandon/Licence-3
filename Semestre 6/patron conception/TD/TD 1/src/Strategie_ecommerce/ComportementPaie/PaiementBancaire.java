@@ -1,6 +1,6 @@
 package Strategie_ecommerce.ComportementPaie;
 
-public class PaiementBancaire implements PaiementStrategie{
+public class PaiementBancaire implements PaiementStrategie {
 
     protected int numCarte;
     protected int codeSecret;
@@ -16,4 +16,3 @@ public class PaiementBancaire implements PaiementStrategie{
         System.out.println("Paiement de " + montant + "€ par carte bancaire");
     }
 }
-
