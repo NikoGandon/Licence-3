@@ -16,17 +16,21 @@ public class ConnexionPage extends AppCompatActivity {
         if (savedInstanceState == null) {
             // Ajout du fragment initial
             getSupportFragmentManager().beginTransaction()
-                    .add(R.id.fragment_container, new ConnexionFragment())
+                    .add(R.id.Connexion_Frag, new ConnexionFragment())
                     .commit();
         }
-
     }
 
     public void afficherInscriptionFragment() {
         getSupportFragmentManager().beginTransaction()
-                .replace(R.id.fragment_container, new InscriptionFragment())
+                .replace(R.id.Inscription_Frag, new InscriptionFragment())
                 .addToBackStack(null)
                 .commit();
     }
-
+    public void afficherConnexionFragment() {
+        getSupportFragmentManager().beginTransaction()
+                .replace(R.id.Connexion_Frag, new ConnexionFragment())
+                .addToBackStack(null)
+                .commit();
+    }
 }
