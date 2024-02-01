@@ -34,7 +34,7 @@ export class AuthService {
       password: password,
     };
 
-    return this.http.post<Boolean>(`${this.API_URL}/login`, body, {
+    return this.http.post<Boolean>(`${this.API_URL}/auth/login`, body, {
       headers: this.getHeaders(),
     });
   }
