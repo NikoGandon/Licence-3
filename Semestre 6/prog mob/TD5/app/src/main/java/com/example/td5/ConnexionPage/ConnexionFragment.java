@@ -1,5 +1,6 @@
 package com.example.td5.ConnexionPage;
 
+import android.animation.TimeAnimator;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -7,6 +8,7 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import com.example.td5.R;
 
@@ -61,6 +63,15 @@ public class ConnexionFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_connexion, container, false);
+        View view = inflater.inflate(R.layout.fragment_connexion, container, false);
+
+        final String usernameOrEmail = String.valueOf(view.findViewById(R.id.usernameConnexion));
+        final String password = String.valueOf(view.findViewById(R.id.passwordConnexion));
+
+        if (!ConnexionController.connexion(usernameOrEmail, password, getContext())){
+            Toast.makeText(getContext(), "Erreur lors de la connexion", Toast.LENGTH_SHORT).show();
+        }
+
+        return view;
     }
 }

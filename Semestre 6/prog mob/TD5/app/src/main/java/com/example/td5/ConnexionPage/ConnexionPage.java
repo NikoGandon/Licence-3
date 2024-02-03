@@ -14,7 +14,6 @@ public class ConnexionPage extends AppCompatActivity {
         setContentView(R.layout.activity_connexion_page);
 
         if (savedInstanceState == null) {
-            // Ajout du fragment initial
             getSupportFragmentManager().beginTransaction()
                     .add(R.id.Connexion_Frag, new ConnexionFragment())
                     .commit();

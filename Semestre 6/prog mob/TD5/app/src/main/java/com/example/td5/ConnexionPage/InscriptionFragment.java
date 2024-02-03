@@ -91,25 +91,10 @@ public class InscriptionFragment extends Fragment {
                 String usernameText = Username.getText().toString();
                 String emailText = email.getText().toString();
 
-
-                FileOutputStream file = null;
-
-                try{
-                    file = requireContext().openFileOutput("comptes.csv", Context.MODE_APPEND);
-                    String userData = usernameText + ";" + emailText + ";" + passwordText + "\n";
-
-                    file.write(userData.getBytes());
-
-                    Toast.makeText(getContext(), "Compte enregistré avec succès", Toast.LENGTH_SHORT).show();
-                } catch (Exception e){
-                    e.printStackTrace();
-                } finally {
-                    try {
-                        if (file != null) file.close();
-                    } catch (Exception e){
-                        e.printStackTrace();
-                    }
+                if (!ConnexionController.enregistrerCompte(usernameText, emailText, passwordText, getContext())){
+                    Toast.makeText(getContext(), "Erreur lors de l'inscription", Toast.LENGTH_SHORT).show();
                 }
+
             }
         });
 
