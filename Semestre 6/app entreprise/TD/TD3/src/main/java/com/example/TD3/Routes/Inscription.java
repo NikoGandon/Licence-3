@@ -19,7 +19,7 @@ import org.springframework.ui.Model;
 
 @Controller
 @Component
-public class Inscription extends HttpFilter implements HttpSessionAttributeListener{
+public class Inscription {
     @GetMapping("/inscription")
     public String getInscription() {
         return "formulaireInscription";
@@ -41,10 +41,4 @@ public class Inscription extends HttpFilter implements HttpSessionAttributeListe
 
         return "confirmation " + prenomUtilisateur;
     }
-
-    @Override
-    protected void doFilter(HttpServletRequest request, jakarta.servlet.http.HttpServletResponse response, jakarta.servlet.FilterChain chain) {
-        return;
-    }
-
 }
