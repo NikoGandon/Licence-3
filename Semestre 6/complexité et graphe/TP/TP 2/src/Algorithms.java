@@ -15,7 +15,7 @@ public class Algorithms {
         List<Noeud<T>> noeuds = new ArrayList<>();
 
         Stack<Noeud<T>> pile = new Stack<>();
-        
+
         pile.push(depart);
 
         while (!pile.isEmpty()) {
@@ -62,7 +62,25 @@ public class Algorithms {
     public static <T> List<Set<Noeud<T>>> composantesConnexes(Graphe<T> g) {
         List<Set<Noeud<T>>> composantes = new ArrayList<>();
 
+        Set<Noeud<T>> noeuds = g.getNoeuds();
 
+        while (!noeuds.isEmpty()) {
+            Noeud<T> n = noeuds.iterator().next();
+            Set<Noeud<T>> composante = new HashSet<>();
+            Queue<Noeud<T>> F = new LinkedList<>();
+            F.add(n);
+            while (!F.isEmpty()) {
+                Noeud<T> m = F.poll();
+                composante.add(m);
+                noeuds.remove(m);
+                for (Noeud<T> voisin : m.getVoisins()) {
+                    if (noeuds.contains(voisin)) {
+                        F.add(voisin);
+                    }
+                }
+            }
+            composantes.add(composante);
+        }
 
         return composantes;
     }
@@ -77,6 +95,22 @@ public class Algorithms {
     public static <T> Pair<Set<Noeud<T>>, Integer> coupeAlea(Graphe<T> g) {
         Set<Noeud<T>> S = new HashSet<>();
         int nbArcs = 0;
+
+        List<Noeud<T>> noeuds = new ArrayList<>(g.getNoeuds());
+
+        Collections.shuffle(noeuds);
+
+        for (Noeud<T> n : noeuds) {
+            if (S.isEmpty()) {
+                S.add(n);
+            } else {
+                Set<Noeud<T>> voisins = n.getVoisins();
+                if (voisins.stream().anyMatch(S::contains)) {
+                    S.add(n);
+                    nbArcs += voisins.stream().filter(S::contains).count();
+                }
+            }
+        }
 
         return new Pair<>(S, nbArcs);
     }
