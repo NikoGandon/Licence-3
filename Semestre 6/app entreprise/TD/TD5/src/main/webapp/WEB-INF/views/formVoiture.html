@@ -1,0 +1,17 @@
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Form</title>
+  </head>
+  <body>
+    <h1>Formulaire de voiture</h1>
+    <form th:object="${models}">
+      <p>Marque: <input type="text" th:value="*{marque}" /></p>
+      <p>Modele: <input type="text" th:value="*{modele}" /></p>
+      <p>Immatriculation: <input type="text" th:value="*{immat}" /></p>
+      <p>Nombre de places: <input type="number" th:value="*{nbrPlace}" /></p>
+      <p><input type="submit" value="Submit" /> <input type="reset" value="Reset" /></p>
+    </form>
+  </body>
+</html>
+
