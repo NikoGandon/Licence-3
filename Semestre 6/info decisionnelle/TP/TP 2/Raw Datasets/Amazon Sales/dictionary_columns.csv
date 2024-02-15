@@ -1,0 +1,16 @@
+﻿old_column_name,new_column_name
+PRODUCT ID,product_id
+PRODUCT NAME,product_name
+CATEGORY,category
+DISCOUNTED PRICE,discount
+ACTUAL PRICE,base_price
+RATING,average_rating
+RATING COUNT,number_of_ratings
+ABOUT PRODUCT,product_description
+USER ID,users_id
+USER NAME,users_name
+REVIEW ID,reviews_id
+REVIEW TITLE,reviews_title
+REVIEW CONTENT,reviews_content
+IMG LINK,image_link
+PRODUCT LINK,product_link
