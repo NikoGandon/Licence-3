@@ -1,0 +1,107 @@
+<?xml version="1.0" ?>
+<list>
+
+<!-- Clint Eastwood -->
+
+<actor id="clint"><firstname>Clint</firstname><lastname>Eastwood</lastname>
+<birth>31 Mai 1930</birth>
+<nationality>américaine</nationality>
+<photo source="clint.jpg" alt="Clint Eastwood" />
+<site url="http://www.clinteastwood.net/" />
+
+<biography>
+
+<p>
+Né d'un père comptable, le jeune Clinton mène avec ses parents une vie
+de nomade. Il passe son adolescence à Oakland et ne pense pas du tout
+à devenir acteur. Il fait des petits boulots sans  grande conviction.
+Puis il part à l'armée où il fait des rencontres décisives et obtient
+du travail chez Universal. Il fait sa première apparition en <year>1955</year>
+dans <film>La Revanche de la créature</film> puis enchaîne les petits rôles
+dans cinq films où personne ne le remarque véritablement.
+</p>
+
+<p>
+Avec le drame <film>Million dollar baby</film>, le cinéaste obtient une
+véritable consécration en remportant, douze ans après <film>Impitoyable</film>,
+l'Oscar du Meilleur film et du Meilleur réalisateur, ses comédiens
+<refactor code="hilary">Hilary Swank</refactor>
+et <refactor code="morgan">Morgan Freeman</refactor>
+repartant avec les statuettes de La Meilleure actrice
+et du Meilleur second rôle masculin.
+</p>
+
+
+</biography>
+
+</actor>
+
+<!-- Hilary Swank -->
+
+<actor id="hilary">
+<firstname>Hilary</firstname>
+<lastname>Swank</lastname>
+<birth>30 Juillet 1974</birth>
+<nationality>américaine</nationality>
+<photo source="hilaryswank.jpg" alt="Hilary Swank"/>
+<site url="http://www.hilaryswankfan.com/" />
+
+<biography>
+
+<p>
+Championne de natation, Hilary Swank s'oriente rapidement vers le métier d'actrice.
+A l'âge de dix-huit ans, elle fait une courte apparition dans
+<film>Buffy, tueuse de vampires</film> en <year>1992</year>, une comédie fantastique
+de Fran Rubel Kuzui, et décroche en <year>1994</year> le rôle-titre de
+<film>Miss Karaté Kid</film> de Christopher Cain.
+</p>
+<p>
+C'est <film>Boys don't cry</film>, un drame de <realisateur>Kimberly Peirce</realisateur>,
+qui la révèle véritablement au grand public en <year>2000</year>.
+Sa prestation du travesti Brandon Teena lui vaut l'Oscar et le Golden Globe
+de la Meilleure actrice, les prix d'interprétation des New York Film Critics,
+Los Angeles Film Critics et Chicago Film Critics, ainsi que le Broadcast Film Critics.
+</p>
+<p>
+En <year>2005</year>, elle rafle pour la deuxième fois (et en seulement deux nominations)
+l'Oscar de la Meilleure actrice grâce à sa performance de boxeuse surentraînée par
+<refactor code="clint">Clint Eastwood</refactor> dans <film>Million dollar baby</film>.
+</p>
+</biography>
+
+</actor>
+
+<!-- Morgan Freeman -->
+
+<actor id="morgan">
+<firstname>Morgan</firstname>
+<lastname>Freeman</lastname>
+<birth>1 Juin 1937</birth>
+<nationality>américaine</nationality>
+<photo source="freeman.jpg" alt="Morgan Freeman"/>
+
+<biography>
+
+<p>
+Morgan Freeman est diplômé du lycée de Greenwood, dans le Mississippi.
+A dix-huit ans, il s'engage dans l'Air Force et, une fois ses obligations
+militaires accomplies, s'installe en Californie pour étudier la danse
+et l'art dramatique au Los Angeles City College. C'est à Broadway qu'il fait ses
+débuts de comédien en <year>1967</year>.
+</p>
+
+<p>
+A 68 ans, il obtient enfin la reconnaissance de la profession en remportant
+l'Oscar du Meilleur second rôle masculin pour sa prestation d'ancien boxeur
+borgne dans <film>Million dollar baby</film> (<year>2005</year>) de son fidèle
+ami <refactor code="clint">Clint Eastwood</refactor>.
+</p>
+
+</biography>
+
+</actor>
+
+
+</list>
+
+
