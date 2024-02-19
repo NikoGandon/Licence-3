@@ -22,3 +22,14 @@
 5. //CD[performance/orchestra = "London Symphony Orchestra"]
 
 # Exrecice 3
+
+1. sum(//rcp:ingredient[contains(@name, "egg")]/@amount)
+2. //rcp:ingredient[contains(@name, "olive oil")]
+3. //rcp:recipe/rcp:title/text()
+4. //rcp:recipe[rcp:nutrition/@calories < 500]/rcp:title/text()
+5. //rcp:recipe[rcp:title="Zuppa Inglese"]/rcp:ingredient[@name = "sugar"]/@amount
+6. //rcp:recipe[rcp:title="Zuppa Inglese"]/rcp:preparation/rcp:step[position() <= 2]/text()
+7. //rcp:recipe[count(rcp:preparation/rcp:step) < 5]/rcp:title/text()
+8. Est-ce possible ? On a besoin de //rcp:recipe[rcp:title = ``'Zuppa Inglese']/rcp:ingredient/@name``,
+9.
+10. //rcp:recipe[not(rcp:ingredient[contains(@name, "butter")])]/rcp:title/text()
