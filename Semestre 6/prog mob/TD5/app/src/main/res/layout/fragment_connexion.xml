@@ -17,9 +17,10 @@
         android:layout_marginTop="100dp"
         android:ems="10"
         android:inputType="text"
-        android:text="Name"
+        android:hint="Name"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        />
 
     <EditText
         android:id="@+id/passwordConnexion"
@@ -31,6 +32,7 @@
         android:inputType="textPassword"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="241dp" />
+        tools:layout_editor_absoluteY="241dp"
+        tools:ignore="MissingConstraints" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

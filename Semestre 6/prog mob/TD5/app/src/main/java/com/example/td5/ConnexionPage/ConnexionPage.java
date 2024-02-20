@@ -15,20 +15,20 @@ public class ConnexionPage extends AppCompatActivity {
 
         if (savedInstanceState == null) {
             getSupportFragmentManager().beginTransaction()
-                    .add(R.id.Connexion_Frag, new ConnexionFragment())
+                    .replace(R.id.fragmentContainer, new ConnexionFragment())
                     .commit();
         }
     }
 
     public void afficherInscriptionFragment() {
         getSupportFragmentManager().beginTransaction()
-                .replace(R.id.Inscription_Frag, new InscriptionFragment())
+                .replace(R.id.fragmentContainer, new InscriptionFragment())
                 .addToBackStack(null)
                 .commit();
     }
     public void afficherConnexionFragment() {
         getSupportFragmentManager().beginTransaction()
-                .replace(R.id.Connexion_Frag, new ConnexionFragment())
+                .replace(R.id.fragmentContainer, new ConnexionFragment())
                 .addToBackStack(null)
                 .commit();
     }

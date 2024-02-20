@@ -6,4 +6,11 @@
     android:layout_height="match_parent"
     tools:context=".ConnexionPage.ConnexionPage">
 
+    <androidx.fragment.app.FragmentContainerView
+        android:id="@+id/fragmentContainer"
+        android:name="com.example.td5.ConnexionPage.ConnexionFragment"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="16dp" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
