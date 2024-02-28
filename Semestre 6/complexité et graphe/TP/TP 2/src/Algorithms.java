@@ -96,21 +96,7 @@ public class Algorithms {
         Set<Noeud<T>> S = new HashSet<>();
         int nbArcs = 0;
 
-        List<Noeud<T>> noeuds = new ArrayList<>(g.getNoeuds());
-
-        Collections.shuffle(noeuds);
-
-        for (Noeud<T> n : noeuds) {
-            if (S.isEmpty()) {
-                S.add(n);
-            } else {
-                Set<Noeud<T>> voisins = n.getVoisins();
-                if (voisins.stream().anyMatch(S::contains)) {
-                    S.add(n);
-                    nbArcs += voisins.stream().filter(S::contains).count();
-                }
-            }
-        }
+        
 
         return new Pair<>(S, nbArcs);
     }
