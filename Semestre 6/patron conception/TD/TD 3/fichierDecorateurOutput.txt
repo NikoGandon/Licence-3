@@ -1,0 +1,1 @@
+Test decorateur output StreamUn autre test decorateur output Stream

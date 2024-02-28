@@ -1,0 +1,2 @@
+TEST IO, Decorateur, avec ,
+test io| DECORATEUR| avec |

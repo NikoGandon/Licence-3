@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="be96a9ac-0b9f-4a3f-b108-ea6efc20b751" name="Default Changelist" comment="" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectId" id="1VAQwq8IGOLAyJRHiiHEff2NsCJ" />
+  <component name="PropertiesComponent">
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/decorateur" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="observateur.implemente" />
+      <recent name="strategie" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\HDD perso\Cours DP\Cours Lamara ARBANE\TP\TPs vierges\decorateurDP\src\decorateur" />
+      <recent name="C:\HDD perso\Cours DP\Cours Lamara ARBANE\TP\TPs vierges\decorateurDP\src" />
+      <recent name="C:\HDD perso\cours design pattern\Cours Lamara ARBANE\TP\TP travail\TP vierge\designpatterns\src\decorateur\javaio" />
+      <recent name="C:\HDD perso\cours design pattern\Cours Lamara ARBANE\Source TP1 Stratégie\TP vierge\designpatterns" />
+      <recent name="C:\HDD perso\cours design pattern\Cours Lamara ARBANE\Source TP1 Stratégie\TP vierge\designpatterns\src" />
+    </key>
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager" selected="Application.SimulateurCanardDecorateur">
+    <configuration name="SimulateurBoisson" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="decorateur.boisson.SimulateurBoisson" />
+      <module name="designpatterns" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="decorateur.boisson.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="SimulateurCanardDecorateur" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="decorateur.DecorateurCanard.SimulateurCanardDecorateur" />
+      <module name="designpatterns" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="decorateur.DecorateurCanard.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="SimulateurInput" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="decorateur.javaio.SimulateurInput" />
+      <module name="designpatterns" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="decorateur.javaio.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="SimulateurOutput" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="decorateur.javaio.SimulateurOutput" />
+      <module name="designpatterns" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="decorateur.javaio.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="SimulateurStationMeteo" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="observateur.stationmeteo.SimulateurStationMeteo" />
+      <module name="designpatterns" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="observateur.stationmeteo.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.SimulateurCanardDecorateur" />
+        <item itemvalue="Application.SimulateurOutput" />
+        <item itemvalue="Application.SimulateurInput" />
+        <item itemvalue="Application.SimulateurBoisson" />
+        <item itemvalue="Application.SimulateurStationMeteo" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="be96a9ac-0b9f-4a3f-b108-ea6efc20b751" name="Default Changelist" comment="" />
+      <created>1576693661031</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1576693661031</updated>
+    </task>
+    <servers />
+  </component>
+</project>
