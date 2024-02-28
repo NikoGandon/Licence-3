@@ -13,14 +13,14 @@ import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;
 
 @Configuration
-public class Configuration implements WebMvcConfigurer {
+public class AppConfig implements WebMvcConfigurer {
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
         registry.addInterceptor(localeChangeInterceptor());
     }
 
     @Bean
-    public LocaleResolver localeResolver(){
+    public SessionLocaleResolver localeResolver(){
         SessionLocaleResolver slr = new SessionLocaleResolver();
         slr.setDefaultLocale(Locale.FRANCE);
         return slr;
