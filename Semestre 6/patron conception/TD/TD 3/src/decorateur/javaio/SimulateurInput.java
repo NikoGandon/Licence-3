@@ -7,7 +7,7 @@ import java.io.InputStream;
 
 public class SimulateurInput {
     public static void main(String[] args) throws IOException {
-             int c;
+            int c;
             InputStream in =  new FileInputStream("fichierDecorateurInput.txt");
             while((c = in.read()) >= 0) {
                 System.out.print((char)c);
