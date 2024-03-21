@@ -61,27 +61,20 @@ public class Algorithms {
 
     public static <T> List<Set<Noeud<T>>> composantesConnexes(Graphe<T> g) {
         List<Set<Noeud<T>>> composantes = new ArrayList<>();
-
+    
+        Set<Noeud<T>> ensemble = new HashSet<>();
+        Set<Noeud<T>> visite = new HashSet<>();
         Set<Noeud<T>> noeuds = g.getNoeuds();
 
-        while (!noeuds.isEmpty()) {
-            Noeud<T> n = noeuds.iterator().next();
-            Set<Noeud<T>> composante = new HashSet<>();
-            Queue<Noeud<T>> F = new LinkedList<>();
-            F.add(n);
-            while (!F.isEmpty()) {
-                Noeud<T> m = F.poll();
-                composante.add(m);
-                noeuds.remove(m);
-                for (Noeud<T> voisin : m.getVoisins()) {
-                    if (noeuds.contains(voisin)) {
-                        F.add(voisin);
-                    }
+        for (Noeud<T> noeud : noeuds) {
+            if (!visite.contains(noeud)){
+                ensemble = new HashSet<>(arbreLargeur(g, noeud));
+                for (Noeud<T> noeudAMarquer : ensemble){
+                    visite.add(noeudAMarquer);
                 }
+                composantes.add(ensemble);
             }
-            composantes.add(composante);
         }
-
         return composantes;
     }
 
@@ -95,6 +88,7 @@ public class Algorithms {
     public static <T> Pair<Set<Noeud<T>>, Integer> coupeAlea(Graphe<T> g) {
         Set<Noeud<T>> S = new HashSet<>();
         int nbArcs = 0;
+
 
         
 

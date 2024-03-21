@@ -33,6 +33,6 @@ public class TP1 {
         // a.arbreLargeur(graphe, graphe.getNoeud("1"));
         Noeud<String> noeud1 = graphe.getNoeud("1");
         System.out.println(noeud1.getLabel());
-        // a.arbreProfondeur(graphe, graphe.getNoeud("1"));
+        a.arbreProfondeur(graphe, graphe.getNoeud("1"));
     }
 }
