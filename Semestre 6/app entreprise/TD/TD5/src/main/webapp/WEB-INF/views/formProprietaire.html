@@ -1,0 +1,16 @@
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Form</title>
+  </head>
+  <body>
+    <h1>Formulaire de proprietaire</h1>
+    <form th:object="${models}">
+      <p>nom: <input type="text" th:value="*{nom}" /></p>
+      <p>prenom: <input type="text" th:value="*{prenom}" /></p>
+      <p>age: <input type="number" th:value="*{age}" /></p>
+      <p><input type="submit" value="Submit" /> <input type="reset" value="Reset" /></p>
+    </form>
+  </body>
+</html>
+
