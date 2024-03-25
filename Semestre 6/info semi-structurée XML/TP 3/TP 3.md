@@ -40,3 +40,9 @@ let $movie := doc("films.xml")//FILM[TITRE = "Eyes Wide Shut"] return     <METTE
 	<NOM>{ $movie/METTEUR_EN_SCENE/NOM/text() } </NOM>
 	<PRENOM>{ $movie/METTEUR_EN_SCENE/PRENOM/text() }</PRENOM>     </METTEUR_EN_SCENE>
 ```
+
+___
+
+# TP 3bis
+## Exercice 1
+
