@@ -22,7 +22,8 @@ let $titles := distinct-values(doc("films.xml")//film/title)
 return
   <TITRES>
     {
-		for $title in sort($titles)         return <TITRE>{$title}</TITRE>
+		for $title in sort($titles)
+         return <TITRE>{$title}</TITRE>
 	}     
 </TITRES>
 ```
@@ -46,3 +47,4 @@ ___
 # TP 3bis
 ## Exercice 1
 
+	
