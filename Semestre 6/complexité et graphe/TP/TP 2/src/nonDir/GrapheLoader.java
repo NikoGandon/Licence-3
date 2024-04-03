@@ -8,7 +8,7 @@ import java.util.Scanner;
 
 public class GrapheLoader<T> {
 
-    public static Graphe<String> chargerChaine(String chemin) {
+    public Graphe<String> chargerChaine(String chemin) {
 
         Graphe<String> graphe = new GrapheImpl<String>();
 

@@ -1,5 +1,6 @@
 import nonDir.Graphe;
 import nonDir.GrapheImpl;
+import nonDir.GrapheLoader;
 import nonDir.Noeud;
 import nonDir.NoeudImpl;
 import utils.Pair;
@@ -87,8 +88,8 @@ public class Algorithms {
      */
     public static <T> Pair<Set<Noeud<T>>, Integer> coupeAlea(Graphe<T> g) {
         Set<Noeud<T>> S = new HashSet<>();
+        Set<Noeud<T>> T = new HashSet<>();
         int nbArcs = 0;
-
 
         
 
