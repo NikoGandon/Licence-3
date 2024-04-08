@@ -1,7 +1,7 @@
 package singleton;
 
 public class JournalisationSingleton {
-    public static JournalisationSingleton instance = null;
+    private static JournalisationSingleton instance = null;
     private String journal = "";
 
     private JournalisationSingleton() {
