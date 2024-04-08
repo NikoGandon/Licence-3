@@ -2,7 +2,6 @@ package singleton;
 
 public class SimulateurMultiThread {
 
-
     public static void main(String[] args) {
         Runnable runnable = new RunnableMultiThreadCanard();
 
@@ -27,8 +26,6 @@ public class SimulateurMultiThread {
             thread3.join();
             thread4.join();
             thread5.join();
-
-
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
@@ -36,6 +33,4 @@ public class SimulateurMultiThread {
         // System.out.println(JournalisationSingleton.getInstance().terminerJournal());
     }
 
-    }
-
-
+}
